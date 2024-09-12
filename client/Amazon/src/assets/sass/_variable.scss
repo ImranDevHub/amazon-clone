@@ -1,0 +1,152 @@
+.icon {
+  background-image: url('../img/sprinte.png'); /* path to your sprite image */
+  background-repeat: no-repeat;
+}
+
+.amazon-smile {
+  height: 25px;
+  width: 110px;
+  background-position: -10px -8px; /* First amazon smile icon at the top-left */
+}
+
+.amazon-prime {
+  height: 17px;
+  width: 45px;
+  background-position: -160px -10px; /* prime icon shifted left */
+}
+
+.prime-day-amazon {
+  width: 100px;
+  height: 46px;
+  background-position: -238px -52px; /* prime day shifted left again */
+}
+
+.prime-day {
+  width: 92px;
+  height: 35px;
+  background-position: -238px -8px; /* prime day shifted left again */
+}
+
+.amazon-logo-sm {
+  width: 97px;
+  height: 30px;
+  background-position: -10px -50px; /* second amazon logo in the second row */
+}
+.amazon-logo {
+  width: 99px;
+  height: 30px;
+  background-position: -10px -50px; /* second amazon logo in the second row */
+}
+
+.amazon-fresh {
+  width: 97px;
+  height: 35px;
+  background-position: -136px -130px; /* fresh logo */
+}
+.amazon-fresh-sm {
+  width: 77px;
+  height: 25px;
+  background-position: -136px -102px; /* fresh logo */
+}
+
+.privacy {
+  width: 29px;
+  height: 18px;
+  background-position: -137px -377px; /* cart icon from the bottom row */
+}
+
+.location-sm {
+  width: 18px;
+  height: 20px;
+  background-position: -69px -377px; /* cart icon from the bottom row */
+}
+
+.location {
+  width: 20px;
+  height: 23px;
+  background-position: -69px -338px; /* cart icon from the bottom row */
+}
+
+.location-md {
+  width: 20px;
+  height: 23px;
+  background-position: -69px -305px; /* cart icon from the bottom row */
+}
+.search {
+  width: 25px;
+  height: 24px;
+  background-position: -8px -288px; /* cart icon from the bottom row */
+}
+
+.cart-left-empty-sm {
+  width: 42px;
+  height: 30px;
+  background-position: -8px -393px; /* cart icon from the bottom row */
+}
+
+.cart-right-empty-sm {
+  width: 42px;
+  height: 29px;
+  background-position: -8px -338px; /* cart icon from the bottom row */
+}
+
+.close {
+  width: 21px;
+  height: 21px;
+  background-position: -188px -287px; /* profile icon from the bottom row */
+}
+.menu-sm {
+  width: 20px;
+  height: 20px;
+  background-position: -171px -250px; /* profile icon from the bottom row */
+}
+.menu {
+  width: 24px;
+  height: 23px;
+  background-position: -135px -250px; /* profile icon from the bottom row */
+}
+.cart-right {
+  width: 45px;
+  height: 31px;
+  background-position: -293px -337px; /* profile icon from the bottom row */
+}
+
+.cart-left {
+  width: 45px;
+  height: 31px;
+  background-position: -293px -394px; /* profile icon from the bottom row */
+}
+.cart-left-empty {
+  width: 45px;
+  height: 31px;
+  background-position: -214px -395px; /* profile icon from the bottom row */
+}
+
+.cart-right-empty {
+  width: 45px;
+  height: 33px;
+  background-position: -214px -332px; /* profile icon from the bottom row */
+}
+
+.profile {
+  width: 28px;
+  height: 28px;
+  background-position: -135px -338px; /* profile icon from the bottom row */
+}
+
+.flag {
+  background-image: url(../img/sprinte-flags.png);
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 18px;
+}
+
+.america {
+  background-position: 0 -131px;
+}
+
+/* Continue with the same pattern for other icons, adjusting the x and y values accordingly */
+
+$color-bg-primary: #131921;
+$color-bg-secondary: #232f3e;
+$color-primary: #ffcd4f;

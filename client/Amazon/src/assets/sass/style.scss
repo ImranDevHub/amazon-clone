@@ -1,2 +1,13 @@
 @import './variable';
 @import './reset';
+
+.nav {
+  background-color: $color-bg-primary;
+  &__logo {
+    display: inline-block;
+  }
+}
+
+.header {
+  color: #fff;
+}
