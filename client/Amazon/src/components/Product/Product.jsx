@@ -24,7 +24,7 @@ function Product({ data, detail, cart }) {
   //   console.log(context);
   const { state, dispatch } = context;
 
-//   console.log(state);
+  //   console.log(state);
 
   const handleAddToCart = () => {
     dispatch({
@@ -49,7 +49,7 @@ function Product({ data, detail, cart }) {
           </Card.Header>
         )}
         <Card.Body>
-          <Link to={`/products/${id}`}>
+          <Link to={`${!cart ? '/products/' + id : ''}`}>
             <Card.Img
               alt={title}
               className="category__img card-img-top"

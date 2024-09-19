@@ -15,7 +15,7 @@ function ProductDetails() {
         setIsLoading(true);
         const response = await instance.get(`/products/${productID}`);
         const data = response.data;
-        console.log(data);
+        //   console.log(data);
         setProduct(data);
         setIsLoading(false);
       } catch (err) {

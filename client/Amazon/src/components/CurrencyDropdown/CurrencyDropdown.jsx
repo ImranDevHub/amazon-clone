@@ -43,11 +43,11 @@ const customOption = props => {
 
 function CurrencyDropdown() {
   const context = useContext(MyContext);
-  console.log(context);
+  //   console.log(context);
 
   const { selectedOption, setSelectedOption } = context;
 
-  console.log(selectedOption);
+  //   console.log(selectedOption);
   // Set the initial state to the first option (USD in this case)
 
   // Handle change event when an option is selected
@@ -55,7 +55,6 @@ function CurrencyDropdown() {
     setSelectedOption(option);
   };
 
-  console.log(selectedOption);
   return (
     <CreatableSelect
       options={options}

@@ -5,7 +5,8 @@ import Product from '../../components/Product/Product';
 import CurrencyFormatter from '../../components/currencyFormatter/CurrencyFormatter';
 import { Type } from '../../utils/action.type';
 import './cart.css';
-
+import { IoIosArrowUp } from 'react-icons/io';
+import { IoIosArrowDown } from 'react-icons/io';
 function Cart() {
   const context = useContext(MyContext);
   const { state, dispatch } = context;
@@ -30,17 +31,17 @@ function Cart() {
               <Product data={item} detail={true} cart={true} />
               <div className="d-flex flex-column w-25 position-absolute top-50 btn__toggle">
                 <button
-                  className="btn fs-3 btn-warning w-25 mb-3"
+                  className="btn btn-warning w-25 mb-3"
                   onClick={() => handleIncrement(item)}
                 >
-                  +
+                  <IoIosArrowUp size={35} />
                 </button>
                 <span className="text-center w-25">{item.amount}</span>
                 <button
                   className="btn fs-3 btn-warning w-25 mt-3"
                   onClick={() => handleDecrement(item.id)}
                 >
-                  -
+                  <IoIosArrowDown size={35} />
                 </button>
               </div>
             </div>

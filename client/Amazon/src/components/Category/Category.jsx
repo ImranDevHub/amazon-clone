@@ -32,10 +32,10 @@ function Category({ data }) {
             <div className="col-6">
               <img src={image?.img4} alt="" />
               <span className="fs-5">{alt?.alt4}</span>
-            </div>{' '}
+            </div>
           </Card.Body>
 
-          <Card.Text className="p-3">Shope now</Card.Text>
+          <Card.Text className="p-3 fs-4 text-primary">See more</Card.Text>
         </Card>
       </Link>
     </>

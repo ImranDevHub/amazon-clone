@@ -24,7 +24,7 @@ function CurrencyFormatter({ amount }) {
 
         // Set the converted amount
         setConvertedAmount(data.rates[selectedOption?.value]);
-        console.log(data.rates[selectedOption?.value]);
+        //   console.log(data.rates[selectedOption?.value]);
       } catch (err) {
         setError(`Error fetching conversion data: ${err.message}`);
       }
