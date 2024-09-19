@@ -16,6 +16,8 @@ function CurrencyFormatter({ amount }) {
           return;
         }
 
+        setError('');
+
         // Fetch the conversion rates
         const response = await fetch(
           `https://api.frankfurter.app/latest?amount=${amount}&from=USD&to=${selectedOption?.value}`

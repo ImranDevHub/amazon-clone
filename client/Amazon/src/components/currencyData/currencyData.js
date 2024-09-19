@@ -8,5 +8,6 @@ const options = [
   { value: 'INR', label: 'INR', flag: 'IN' },
   { value: 'ETB', label: 'ETB', flag: 'ET' },
   { value: 'SAR', label: 'SAR', flag: 'SA' },
+  { value: 'AED', label: 'AED', flag: 'AE' },
 ];
 export default options;
