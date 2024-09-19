@@ -1,0 +1,30 @@
+.css-hlgwow {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'main'; /* Define one grid area */
+  padding: 0;
+}
+
+/* Assign the grid area */
+.css-hlgwow > *:nth-child(1) {
+  grid-area: main; /* First element goes in the 'main' area */
+}
+
+.css-hlgwow > *:nth-child(2) {
+  display: none; /* Hide any additional grid items */
+}
+
+.css-13cymwt-control {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.css-1u9des2-indicatorSeparator {
+  display: none;
+}
+
+.currency-dropdown {
+  z-index: 9999;
+  position: relative;
+}
