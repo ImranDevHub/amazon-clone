@@ -1,11 +1,12 @@
-import Header from '../../components/header/Header';
 import Hero from '../../components/Hero/Hero';
+import Products from '../../components/Product/Products';
+import ProductLists from '../../components/ProductLists/ProductLists';
 
 function Home() {
   return (
     <>
-      <Header />
       <Hero />
+      <ProductLists />
     </>
   );
 }
