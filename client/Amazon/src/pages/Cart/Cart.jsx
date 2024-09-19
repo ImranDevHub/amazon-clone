@@ -34,14 +34,14 @@ function Cart() {
                   className="btn btn-warning w-25 mb-3"
                   onClick={() => handleIncrement(item)}
                 >
-                  <IoIosArrowUp size={35} />
+                  <IoIosArrowUp size={25} />
                 </button>
                 <span className="text-center w-25">{item.amount}</span>
                 <button
                   className="btn fs-3 btn-warning w-25 mt-3"
                   onClick={() => handleDecrement(item.id)}
                 >
-                  <IoIosArrowDown size={35} />
+                  <IoIosArrowDown size={25} />
                 </button>
               </div>
             </div>

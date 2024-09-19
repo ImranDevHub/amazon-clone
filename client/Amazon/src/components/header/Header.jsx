@@ -9,6 +9,8 @@ function Header() {
   const { state, dispatch } = context;
   const { basket } = state;
 
+  const totalCart = basket?.reduce((acc, cur) => acc + cur.amount, 0);
+
   return (
     <>
       <header className="header">
@@ -53,7 +55,7 @@ function Header() {
             </Link>
             <Link to="cart" className="p-2 hover--border ms-2 me-4 text-nowrap">
               <span className="icon cart-right-empty text-center ps-3 align-middle text-warning fw-bold fs-4">
-                {basket.length}
+                {totalCart}
               </span>
               <span className="align-bottom fw-bold fs-4">Cart</span>
             </Link>
