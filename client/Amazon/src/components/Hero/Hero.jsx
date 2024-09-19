@@ -12,7 +12,7 @@ function Hero() {
   //   console.log(images);
   return (
     <>
-      <Carousel>
+      <Carousel className="hero">
         {images.map((img, i) => (
           <Carousel.Item className="hero__img" key={i}>
             <img className="w-100" src={img} alt="Banner Carousel" />
