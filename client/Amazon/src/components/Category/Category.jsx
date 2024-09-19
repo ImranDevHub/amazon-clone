@@ -9,7 +9,7 @@ function Category({ data }) {
     <>
       <Link to={`/category/${category}`}>
         <Card className="category category--only">
-          <Card.Title className="p-4 fs-4">{title}</Card.Title>
+          <Card.Title className="p-4 fs-3 fw-bold">{title}</Card.Title>
 
           <Card.Body className="row row-cols-2 category__imgs g-0">
             {/* <Card.Img
