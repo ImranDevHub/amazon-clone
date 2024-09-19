@@ -21,12 +21,18 @@
   /* height: 100%; */
 }
 
-.header {
+/* .header {
   min-width: 1024px;
-}
+} */
 
 .nav {
-  height: 6rem;
+  height: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    height: 6rem;
+  }
 }
 
 .nav-main {
@@ -35,6 +41,10 @@
   display: flex;
   justify-content: space-between;
   align-items: end;
+}
+
+.nav-main__left {
+  display: none;
 }
 
 .nav-main__left ul {
@@ -54,4 +64,10 @@
 
 .language {
   width: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-main__left {
+    display: block;
+  }
 }

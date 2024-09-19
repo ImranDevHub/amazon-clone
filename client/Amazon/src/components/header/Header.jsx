@@ -1,14 +1,22 @@
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import CurrencyDropdown from '../CurrencyDropdown/CurrencyDropdown';
+import { MyContext } from '../DataProvider/DataProvider';
 import './header.css';
 
 function Header() {
+  const context = useContext(MyContext);
+  const { state, dispatch } = context;
+  const { basket } = state;
+
   return (
     <>
       <header className="header">
-        <nav className="nav justify-content-between align-items-center flex-nowrap">
+        <nav className="nav justify-content-between align-items-center flex-nowrap flex-column flex-md-row">
           <div className="d-flex align-items-center me-5 justify-content-between">
-            <a href="/" className="hover--border ms-3 me-5 p-2">
+            <Link to="/" className="hover--border ms-3 me-5 p-2">
               <span className="nav__logo icon amazon-logo align-middle"></span>
-            </a>
+            </Link>
 
             <a className="hover--border text-center d-flex flex-column align-items-center p-2">
               <span className="fs-5 ps-4">Deliver to</span>
@@ -30,29 +38,25 @@ function Header() {
           </div>
           <div className="d-flex ms-5">
             <a className="d-flex p-2 hover--border align-items-center justify-content-between">
-              <span className="flag america pt-3"></span>
-              <select
-                name=""
-                id=""
-                className="form-select bg-transparent text-light border border-0 pt-0 ps-1 fs-4 language"
-              >
-                <option value="english">EN</option>
-              </select>
+              <CurrencyDropdown />
             </a>
             <a className="hover--border p-2 d-flex flex-column ms-2 text-nowrap">
               <span className="fs-5">Hello, sign in</span>
               <span className="fw-bold fs-4">Account & List🔻</span>
             </a>
-            <a className="d-flex flex-column ms-2 p-2 hover--border text-nowrap">
+            <Link
+              to="orders"
+              className="d-flex flex-column ms-2 p-2 hover--border text-nowrap"
+            >
               <span className="fs-5">Returns</span>
               <span className="fw-bold fs-4">& orders</span>
-            </a>
-            <a className="p-2 hover--border ms-2 me-4 text-nowrap">
+            </Link>
+            <Link to="cart" className="p-2 hover--border ms-2 me-4 text-nowrap">
               <span className="icon cart-right-empty text-center ps-3 align-middle text-warning fw-bold fs-4">
-                0
+                {basket.length}
               </span>
               <span className="align-bottom fw-bold fs-4">Cart</span>
-            </a>
+            </Link>
           </div>
         </nav>
         <nav className="nav-main">
