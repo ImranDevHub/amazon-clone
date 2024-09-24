@@ -1,10 +1,10 @@
 import { PulseLoader } from 'react-spinners';
 import './loading.css';
 
-function Loading() {
+function Loading({ color }) {
   return (
     <div className="loading">
-      <PulseLoader color="#ffcd4f" />
+      <PulseLoader color={color} />
     </div>
   );
 }

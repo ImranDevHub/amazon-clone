@@ -25,7 +25,7 @@ function Products() {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <Loading color="#ffcd4f" />
       ) : (
         products.map((product, i) => <Product key={i} data={product} />)
       )}

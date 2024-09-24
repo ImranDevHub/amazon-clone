@@ -1,20 +1,25 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../../utils/firebase';
 import CurrencyDropdown from '../CurrencyDropdown/CurrencyDropdown';
 import { MyContext } from '../DataProvider/DataProvider';
 import './header.css';
-
 function Header() {
   const context = useContext(MyContext);
   const { state, dispatch } = context;
-  const { basket } = state;
+  const { basket, user } = state;
 
   const totalCart = basket?.reduce((acc, cur) => acc + cur.amount, 0);
+
+  const handleLogout = () => {
+    const areSure = confirm('Are you sure you want to logout?');
+    if (areSure) auth.signOut();
+  };
 
   return (
     <>
       <header className="header">
-        <nav className="nav justify-content-between align-items-center flex-nowrap flex-column flex-md-row">
+        <nav className="nav justify-content-between align-items-center flex-nowrap flex-column flex-lg-row">
           <div className="d-flex align-items-center me-5 justify-content-between">
             <Link to="/" className="hover--border ms-3 me-5 p-2">
               <span className="nav__logo icon amazon-logo align-middle"></span>
@@ -25,7 +30,7 @@ function Header() {
 
               <div className="d-flex justify-content-center align-items-center fs-4">
                 <span className="icon location-sm"></span>
-                <span>Ethiopia</span>
+                <span className="fw-bold">Ethiopia</span>
               </div>
             </a>
           </div>
@@ -42,10 +47,29 @@ function Header() {
             <a className="d-flex p-2 hover--border align-items-center justify-content-between">
               <CurrencyDropdown />
             </a>
-            <a className="hover--border p-2 d-flex flex-column ms-2 text-nowrap">
-              <span className="fs-5">Hello, sign in</span>
-              <span className="fw-bold fs-4">Account & List🔻</span>
-            </a>
+            <Link
+              to={!user && '/auth'}
+              className="hover--border p-2 d-flex flex-column ms-2 text-nowrap"
+            >
+              {!user && (
+                <>
+                  <div>
+                    <span className="fs-5">Hello, Sign In</span>
+                  </div>
+                  <span className="fw-bold fs-4">Account & List🔻</span>
+                </>
+              )}
+              {user && (
+                <>
+                  <div>
+                    <span className="fs-5">{user.email.split('@')[0]}</span>
+                  </div>
+                  <span className="fw-bold fs-4" onClick={handleLogout}>
+                    Sign out
+                  </span>
+                </>
+              )}
+            </Link>
             <Link
               to="orders"
               className="d-flex flex-column ms-2 p-2 hover--border text-nowrap"

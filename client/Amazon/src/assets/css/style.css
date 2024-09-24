@@ -152,6 +152,29 @@
   background-position: 0 -131px;
 }
 
+.icon-other {
+  background-image: url("../img/sprinte-black.png"); /* path to your sprite image */
+  background-repeat: no-repeat;
+}
+
+.amazon-logo-bk-sm {
+  width: 79px;
+  height: 28px;
+  background-position: -117px -37px; /* second amazon logo in the second row */
+}
+
+.amazon-logo-bk {
+  width: 110px;
+  height: 37px;
+  background-position: -3px -125px; /* second amazon logo in the second row */
+}
+
+.caution {
+  width: 36px;
+  height: 26px;
+  background-position: -249px -36px;
+}
+
 /* Continue with the same pattern for other icons, adjusting the x and y values accordingly */
 *,
 *::after,

@@ -9,5 +9,6 @@ const options = [
   { value: 'ETB', label: 'ETB', flag: 'ET' },
   { value: 'SAR', label: 'SAR', flag: 'SA' },
   { value: 'AED', label: 'AED', flag: 'AE' },
+  { value: 'BTC', label: 'BTC', flag: 'BT' },
 ];
 export default options;

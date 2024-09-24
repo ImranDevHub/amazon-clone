@@ -27,7 +27,11 @@ function ProductDetails() {
 
   return (
     <section className="position-relative">
-      {isLoading ? <Loading /> : <Product data={product} detail={true} />}
+      {isLoading ? (
+        <Loading color="#ffcd4f" />
+      ) : (
+        <Product data={product} detail={true} />
+      )}
     </section>
   );
 }

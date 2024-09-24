@@ -1,0 +1,62 @@
+.link {
+  text-decoration: underline;
+  color: blue;
+}
+
+/* .auth {
+  height: 80vh;
+} */
+
+.auth__signin {
+  max-width: 350px;
+}
+
+.unselected {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.auth__error {
+  width: 350px;
+}
+
+.auth__new {
+  text-align: center;
+  position: relative;
+  top: 2px;
+  padding-top: 20px;
+  margin-bottom: 14px;
+  line-height: 0;
+  width: 100%;
+}
+
+.auth__create {
+  line-height: 1;
+  font-size: 12px;
+  color: #767676;
+  font-weight: 400;
+  z-index: 2;
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 8px 0 7px;
+}
+
+.auth__new::after {
+  content: '';
+  width: 100%;
+  background-color: transparent;
+  display: block;
+  height: 3px;
+  border-top: 1px solid #e7e7e7;
+  position: absolute;
+  top: 35%;
+  margin-top: -1px;
+  z-index: 1;
+}
+
+.size {
+  width: 40px;
+  height: 40px;
+}

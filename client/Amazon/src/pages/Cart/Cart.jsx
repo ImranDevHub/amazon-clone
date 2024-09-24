@@ -66,7 +66,7 @@ function Cart() {
             to="/payment"
             className="w-100 p-2 text-light fs-3 btn btn-warning"
           >
-            Continue to Checkout
+            Process to Checkout
           </Link>
         </div>
       )}

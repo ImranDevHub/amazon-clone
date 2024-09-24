@@ -36,7 +36,7 @@ function Results() {
       <h2 className="text-center">{categoryName.toLocaleUpperCase()}</h2>
       <section className="position-relative grid grid--1x3 grid--1x2 grid--1x4">
         {isLoading ? (
-          <Loading />
+          <Loading color="#ffcd4f" />
         ) : (
           results.map((result, i) => <Product data={result} key={i} />)
         )}
