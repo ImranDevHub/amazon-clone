@@ -1,4 +1,7 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { OrbitProgress } from 'react-loading-indicators';
 import { Link, useNavigate } from 'react-router-dom';
@@ -23,8 +26,15 @@ function Auth() {
     try {
       setIsLoading(loading => ({ ...loading, signIn: true }));
       setError('');
-      if (!email.trim() || password.trim())
-        throw new Error('opps! You miss Your email or Password （︶^︶）');
+      if (!email.trim() || !password.trim())
+        throw new Error('Opps! You miss Your email or Password （︶^︶）');
+
+      const userInfo = await signInWithEmailAndPassword(auth, email, password);
+      // console.log(userInfo);
+      const user = userInfo.user;
+      dispatch({ type: Type.SET_USER, user });
+      setIsLoading(loading => ({ ...loading, signIn: false }));
+      navigate('/');
     } catch (err) {
       setIsLoading(loading => ({ ...loading, signIn: true }));
 
@@ -46,10 +56,8 @@ function Auth() {
       setIsLoading(loading => ({ ...loading, signUp: true }));
 
       setError('');
-      if (!email.trim() || password.trim()) {
-        setError('Please enter a valid email or Password');
-        return;
-      }
+      if (!email.trim() || !password.trim())
+        throw new Error('Opps! You miss Your email or Password （︶^︶）');
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -91,16 +99,20 @@ function Auth() {
           </Link>
           {error && (
             <div className="border border-2 border-danger rounded rounded-4 shadow auth__error mb-5 unselected">
-              <div className="d-flex px-4 py-3">
-                <span className="icon-other caution me-4"></span>
-                <div>
-                  <span className="text-danger fs-3">There was a problem</span>
+              <div className="d-flex px-5 py-3">
+                <span className="icon-other caution me-4 col-1"></span>
+                <div className="col-11">
+                  <span className="text-danger fs-3 ">There was a problem</span>
                   <div>{error}</div>
                 </div>
               </div>
             </div>
           )}
-          <div className="border border-2 auth__signin px-5 py-4 rounded rounded-4 shadow ">
+          <div
+            className={`border border-2 auth__signin px-5 py-4 rounded rounded-4 shadow${
+              error ? ' border-danger' : ''
+            }`}
+          >
             <div className=" fs-1">Sign in</div>
             <form className="" onSubmit={handleSubmit}>
               <label htmlFor="email" className="form-label mt-3 fw-bold">
@@ -134,7 +146,8 @@ function Auth() {
                     easing="ease-in-out"
                     size="small"
                     style={{ fontSize: '5px' }}
-                    color="#000"
+                    color="#fff"
+                    dense
                   />
                 ) : (
                   'Login'
@@ -185,6 +198,7 @@ function Auth() {
                   size="small"
                   style={{ fontSize: '5px' }}
                   color="#000"
+                  dense
                 />
               ) : (
                 ' Create your Amazon account'
