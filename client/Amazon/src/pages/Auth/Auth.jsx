@@ -2,10 +2,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { OrbitProgress } from 'react-loading-indicators';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MyContext } from '../../components/DataProvider/DataProvider';
+import Error from '../../components/Error/Error';
 import { Type } from '../../utils/action.type';
 import { auth } from '../../utils/firebase';
 import './auth.css';
@@ -14,12 +15,14 @@ function Auth() {
   const { state, dispatch } = useContext(MyContext);
   //   console.log(state);
   const { user } = state;
-  console.log(user);
+  //   console.log(user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState({ signIn: false, signUp: false });
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const navState = useLocation();
+  //   setError(() => navState?.state?.msg || '');
 
   const handleSubmit = async function (e) {
     e.preventDefault();
@@ -34,7 +37,7 @@ function Auth() {
       const user = userInfo.user;
       dispatch({ type: Type.SET_USER, user });
       setIsLoading(loading => ({ ...loading, signIn: false }));
-      navigate('/');
+      navigate(navState?.state?.redirect || '/');
     } catch (err) {
       setIsLoading(loading => ({ ...loading, signIn: true }));
 
@@ -72,7 +75,7 @@ function Auth() {
       setIsLoading(loading => ({ ...loading, signUp: false }));
       setEmail('');
       setPassword('');
-      navigate('/');
+      navigate(navState?.state?.redirect || '/');
     } catch (err) {
       setIsLoading(loading => ({ ...loading, signUp: true }));
 
@@ -90,6 +93,10 @@ function Auth() {
   };
   //   console.log(isLoading);
 
+  useEffect(() => {
+    setError(navState?.state?.msg || '');
+  }, [navState]);
+
   return (
     <>
       <section className="d-flex justify-content-center bg-white">
@@ -97,17 +104,7 @@ function Auth() {
           <Link to="/">
             <span className="icon-other amazon-logo-bk my-4"></span>
           </Link>
-          {error && (
-            <div className="border border-2 border-danger rounded rounded-4 shadow auth__error mb-5 unselected">
-              <div className="d-flex px-5 py-3">
-                <span className="icon-other caution me-4 col-1"></span>
-                <div className="col-11">
-                  <span className="text-danger fs-3 ">There was a problem</span>
-                  <div>{error}</div>
-                </div>
-              </div>
-            </div>
-          )}
+          {error && <Error error={error} />}
           <div
             className={`border border-2 auth__signin px-5 py-4 rounded rounded-4 shadow${
               error ? ' border-danger' : ''

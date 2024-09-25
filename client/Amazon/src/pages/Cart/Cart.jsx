@@ -1,12 +1,10 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import { MyContext } from '../../components/DataProvider/DataProvider';
 import Product from '../../components/Product/Product';
-import CurrencyFormatter from '../../components/currencyFormatter/CurrencyFormatter';
+import Summary from '../../components/Summary/Summary';
 import { Type } from '../../utils/action.type';
 import './cart.css';
-import { IoIosArrowUp } from 'react-icons/io';
-import { IoIosArrowDown } from 'react-icons/io';
 function Cart() {
   const context = useContext(MyContext);
   const { state, dispatch } = context;
@@ -23,8 +21,8 @@ function Cart() {
     dispatch({ type: Type.REMOVE_FROM_BASKET, id });
   };
   return (
-    <section className="container d-flex gap-5 mt-5 ">
-      <div>
+    <section className="container d-flex flex-column flex-md-row gap-5 mt-5 ">
+      <div className="order-2 order-md-1">
         {basket.length ? (
           basket?.map((item, i) => (
             <div key={i} className="position-relative">
@@ -53,22 +51,24 @@ function Cart() {
         )}
       </div>
       {basket?.length !== 0 && (
-        <div className="subtotal">
-          <div>
-            <p>Subtotal {basket?.length} items</p>
-            <CurrencyFormatter amount={total} />
-          </div>
-          <div>
-            <input type="checkbox" name="" id="" className="me-1" />
-            <span>This Orders contain a gift</span>
-          </div>
-          <Link
-            to="/payment"
-            className="w-100 p-2 text-light fs-3 btn btn-warning"
-          >
-            Process to Checkout
-          </Link>
-        </div>
+        //   <div className="subtotal">
+        //     <div>
+        //       <p>Subtotal {basket?.length} items</p>
+        //       <CurrencyFormatter amount={total} />
+        //     </div>
+        //     <div>
+        //       <input type="checkbox" name="" id="" className="me-1" />
+        //       <span>This Orders contain a gift</span>
+        //     </div>
+        //     <Link
+        //       to="/payment"
+        //       className="w-100 p-2 text-light fs-3 btn btn-warning"
+        //     >
+        //       Process to Checkout
+        //     </Link>
+        //   </div>
+
+        <Summary />
       )}
     </section>
   );

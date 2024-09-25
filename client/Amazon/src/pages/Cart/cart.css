@@ -29,5 +29,7 @@
 
 .btn__toggle {
   transform: translateY(-50%);
-  right: -150px;
+  /* transform: translateX(10px); */
+  right: 0;
+  text-align: center;
 }

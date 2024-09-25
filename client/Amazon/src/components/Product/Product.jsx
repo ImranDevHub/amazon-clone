@@ -8,7 +8,7 @@ import CurrencyFormatter from '../currencyFormatter/CurrencyFormatter';
 import { MyContext } from '../DataProvider/DataProvider';
 import './product.css';
 
-function Product({ data, detail, cart }) {
+function Product({ data, detail, cart, className }) {
   const { id, title, image, rating, description, price } = data;
   const [hover, setHover] = useState(false);
 
@@ -39,7 +39,7 @@ function Product({ data, detail, cart }) {
   return (
     <>
       <Card
-        className={`category ${hover ? 'hover' : ''}`}
+        className={`category ${hover ? 'hover' : ''} ${className}`}
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
       >
