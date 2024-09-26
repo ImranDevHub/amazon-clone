@@ -40,7 +40,7 @@ function CurrencyFormatter({ amount }) {
       {error ? (
         <p>{error}</p>
       ) : convertedAmount !== null ? (
-        `${convertedAmount.toFixed(2)} ${selectedOption?.value}`
+        `${convertedAmount?.toFixed(2)} ${selectedOption?.value}`
       ) : (
         'Converting...'
       )}

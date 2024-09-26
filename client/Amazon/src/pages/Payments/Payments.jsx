@@ -8,6 +8,7 @@ import { MyContext } from '../../components/DataProvider/DataProvider';
 import Error from '../../components/Error/Error';
 import Product from '../../components/Product/Product';
 import Summary from '../../components/Summary/Summary';
+import { Type } from '../../utils/action.type';
 import { db } from '../../utils/firebase';
 import './payment.css';
 
@@ -62,6 +63,7 @@ function Payments() {
         created: paymentIntent.created, // timestamp
       });
       setIsLoading(false);
+      dispatch({ type: Type.CLEAR_BASKET });
       navigate('/orders', { state: { msg: 'You have placed new Orders:)' } });
     } catch (err) {
       setError('Payment failed. Please try again.');

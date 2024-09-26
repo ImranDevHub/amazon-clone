@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import emptyCart from '../../assets/img/empty-cart.png';
 import { MyContext } from '../../components/DataProvider/DataProvider';
 import Product from '../../components/Product/Product';
 import Summary from '../../components/Summary/Summary';
@@ -21,7 +22,7 @@ function Cart() {
     dispatch({ type: Type.REMOVE_FROM_BASKET, id });
   };
   return (
-    <section className="container d-flex flex-column flex-md-row gap-5 mt-5 ">
+    <section className="container d-flex flex-column flex-md-row gap-5 mt-5 justify-content-center">
       <div className="order-2 order-md-1">
         {basket.length ? (
           basket?.map((item, i) => (
@@ -45,9 +46,14 @@ function Cart() {
             </div>
           ))
         ) : (
-          <p className="text-center mt-5 fs-2 fw-bold">
-            Opps! No Item in Your Chart :)
-          </p>
+          <>
+            <h2 className="text-center mt-5 fs-1 fw-bold">
+              Your Amazon Cart is empty :)
+            </h2>
+            <div className="empty--cart">
+              <img src={emptyCart} alt="empty cart" className="w-100" />
+            </div>
+          </>
         )}
       </div>
       {basket?.length !== 0 && (
