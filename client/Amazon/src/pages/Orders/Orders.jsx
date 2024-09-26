@@ -1,7 +1,7 @@
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { useContext, useEffect, useState } from 'react';
-import emptyOrder from '../../assets/img/empty-cart.png';
 import { MyContext } from '../../components/DataProvider/DataProvider';
+import EmptyMessage from '../../components/EmptyMessage/EmptyMessage';
 import Product from '../../components/Product/Product';
 import { db } from '../../utils/firebase';
 
@@ -64,14 +64,7 @@ function Orders() {
             })}
           </>
         ) : (
-          <>
-            <h2 className="text-center mt-5 fs-1 fw-bold">
-              Your Amazon Order is empty :)
-            </h2>
-            <div className="empty--cart">
-              <img src={emptyOrder} alt="empty cart" className="w-100" />
-            </div>
-          </>
+          <EmptyMessage msg="Your Amazon Order is empty :)" redirect="/" />
         )}
       </div>
     </section>

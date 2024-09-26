@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import emptyCart from '../../assets/img/empty-cart.png';
 import { MyContext } from '../../components/DataProvider/DataProvider';
+import EmptyMessage from '../../components/EmptyMessage/EmptyMessage';
 import Product from '../../components/Product/Product';
 import Summary from '../../components/Summary/Summary';
 import { Type } from '../../utils/action.type';
@@ -23,10 +23,10 @@ function Cart() {
   };
   return (
     <section className="container d-flex flex-column flex-md-row gap-5 mt-5 justify-content-center">
-      <div className="order-2 order-md-1">
+      <div>
         {basket.length ? (
           basket?.map((item, i) => (
-            <div key={i} className="position-relative">
+            <div key={i} className="position-relative order-2 order-md-1">
               <Product data={item} detail={true} cart={true} />
               <div className="d-flex flex-column w-25 position-absolute top-50 btn__toggle">
                 <button
@@ -46,14 +46,7 @@ function Cart() {
             </div>
           ))
         ) : (
-          <>
-            <h2 className="text-center mt-5 fs-1 fw-bold">
-              Your Amazon Cart is empty :)
-            </h2>
-            <div className="empty--cart">
-              <img src={emptyCart} alt="empty cart" className="w-100" />
-            </div>
-          </>
+          <EmptyMessage msg="Your Amazon Cart is empty :)" redirect="/" />
         )}
       </div>
       {basket?.length !== 0 && (
