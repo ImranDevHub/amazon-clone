@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Type } from '../../utils/action.type';
 import { auth } from '../../utils/firebase';
 import CurrencyDropdown from '../CurrencyDropdown/CurrencyDropdown';
 import { MyContext } from '../DataProvider/DataProvider';
@@ -14,6 +15,7 @@ function Header() {
   const handleLogout = () => {
     const areSure = confirm('Are you sure you want to logout?');
     if (areSure) auth.signOut();
+    dispatch({ type: Type.CLEAR_BASKET });
   };
 
   return (

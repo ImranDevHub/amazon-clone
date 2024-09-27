@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
+import { OrbitProgress } from 'react-loading-indicators';
 import { useParams } from 'react-router-dom';
 import Product from '../../components/Product/Product';
 import { instance as axios } from '../../utils/axios';
-import Loading from '../../components/Loading/Loading';
 
 function Results() {
   const { categoryName } = useParams();
@@ -36,7 +36,21 @@ function Results() {
       <h2 className="text-center">{categoryName.toLocaleUpperCase()}</h2>
       <section className="position-relative grid grid--1x3 grid--1x2 grid--1x4">
         {isLoading ? (
-          <Loading color="#ffcd4f" />
+          <OrbitProgress
+            variant="track-disc"
+            speedPlus="-2"
+            easing="ease-in-out"
+            size="small"
+            style={{
+              fontSize: '10px',
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              bottom: '-100px',
+            }}
+            color="#ffcd4f"
+            dense
+          />
         ) : (
           results.map((result, i) => <Product data={result} key={i} />)
         )}

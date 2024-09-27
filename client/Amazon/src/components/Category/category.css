@@ -9,11 +9,13 @@
   background-color: #fff;
   box-shadow: 0 0 2rem 1rem rgba(0, 0, 0, 0.1);
   margin: 1rem;
+  height: 400px;
 }
 
 .category__imgs img {
-  width: 160px;
-  height: 100px;
+  /* width: 160px; */
+  width: 95%;
+  max-height: 100px;
   object-fit: cover;
 }
 .category__imgs {
@@ -55,5 +57,5 @@
 }
 
 .category--only {
-  height: 400px;
+  height: 380px;
 }

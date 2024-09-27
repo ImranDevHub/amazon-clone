@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { OrbitProgress } from 'react-loading-indicators';
 import { MyContext } from '../DataProvider/DataProvider';
 
 function CurrencyFormatter({ amount }) {
@@ -42,7 +43,15 @@ function CurrencyFormatter({ amount }) {
       ) : convertedAmount !== null ? (
         `${convertedAmount?.toFixed(2)} ${selectedOption?.value}`
       ) : (
-        'Converting...'
+        <OrbitProgress
+          variant="track-disc"
+          speedPlus="-2"
+          easing="ease-in-out"
+          size="small"
+          style={{ fontSize: '5px' }}
+          color="#ffcd4f"
+          dense
+        />
       )}
     </div>
   );

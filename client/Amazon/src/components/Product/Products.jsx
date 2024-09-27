@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Loading from '../Loading/Loading';
+import { OrbitProgress } from 'react-loading-indicators';
 import Product from './Product';
 
 function Products() {
@@ -25,7 +25,21 @@ function Products() {
   return (
     <>
       {isLoading ? (
-        <Loading color="#ffcd4f" />
+        <OrbitProgress
+          variant="track-disc"
+          speedPlus="-2"
+          easing="ease-in-out"
+          size="small"
+          style={{
+            fontSize: '10px',
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            bottom: '-100px',
+          }}
+          color="#ffcd4f"
+          dense
+        />
       ) : (
         products.map((product, i) => <Product key={i} data={product} />)
       )}

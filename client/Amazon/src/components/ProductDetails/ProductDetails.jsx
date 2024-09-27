@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { instance } from '../../utils/axios';
 import Loading from '../Loading/Loading';
 import Product from '../Product/Product';
+import { OrbitProgress } from 'react-loading-indicators';
 
 function ProductDetails() {
   const { productID } = useParams();
@@ -28,7 +29,21 @@ function ProductDetails() {
   return (
     <section className="position-relative">
       {isLoading ? (
-        <Loading color="#ffcd4f" />
+        <OrbitProgress
+          variant="track-disc"
+          speedPlus="-2"
+          easing="ease-in-out"
+          size="small"
+          style={{
+            fontSize: '10px',
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            bottom: '-100px',
+          }}
+          color="#ffcd4f"
+          dense
+        />
       ) : (
         <Product data={product} detail={true} />
       )}
