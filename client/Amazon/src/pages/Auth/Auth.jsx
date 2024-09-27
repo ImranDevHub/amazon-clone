@@ -36,7 +36,6 @@ function Auth() {
       // console.log(userInfo);
       const user = userInfo.user;
       dispatch({ type: Type.SET_USER, user });
-      dispatch({ type: Type.CLEAR_BASKET });
       setIsLoading(loading => ({ ...loading, signIn: false }));
       navigate(navState?.state?.redirect || '/');
     } catch (err) {
@@ -71,7 +70,6 @@ function Auth() {
       const user = userCredential.user;
       // console.log(userCredential);
       dispatch({ type: Type.SET_USER, user });
-      dispatch({ type: Type.CLEAR_BASKET });
       setEmail('');
       setPassword('');
       setIsLoading(loading => ({ ...loading, signUp: false }));
